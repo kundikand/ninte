@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt 
+import csv 
+ 
+n_values = [] 
+time_taken = [] 
+ 
+with open('FILE_NAME.csv', 'r') as file: 
+    csvreader = csv.reader(file) 
+    next(csvreader)  
+    for row in csvreader: 
+        n_values.append(int(row[0])) 
+        time_taken.append(float(row[1])) 
+ 
+plt.plot(n_values, time_taken, marker='o') 
+plt.title('Time Taken vs. Number of Elements for Merge Sort') 
+plt.xlabel('Number of Elements (n)') 
+plt.ylabel('Time Taken (seconds)') 
+plt.grid(True) 
+plt.show() 

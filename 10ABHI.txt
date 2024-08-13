@@ -1,0 +1,37 @@
+#include<stdio.h> 
+#include<time.h> 
+#include<stdlib.h> 
+int  a[50000],temp,i,j,min,n; 
+ 
+void selectionsort() 
+{ 
+ for(i=0;i<n-1;i++) 
+     { 
+         min=i; 
+         for(j=i+1;j<n;j++) 
+             if(a[j]<a[min]) 
+                 min=j; 
+        temp=a[i]; 
+        a[i]=a[min]; 
+        a[min]=temp; 
+     } 
+} 
+void main() 
+{ 
+  
+ clock_t start,end; 
+ printf("Enter the number of Elements\n"); 
+ scanf("%d",&n); 
+ printf("Reading elements using random number generator\n"); 
+ for(i=0;i<n;i++) 
+ a[i]=rand(); 
+ start=clock(); 
+ selectionsort(); 
+ end=clock(); 
+ 
+ 
+printf("The Sorted Element are\n"); 
+for(i=0;i<n;i++) 
+printf("%d\t",a[i]); 
+printf(" \nTime complexity=%f ",(double)(end-start)/(CLOCKS_PER_SEC)); 
+}
